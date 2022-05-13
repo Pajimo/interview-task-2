@@ -41,13 +41,17 @@ const Auth: React.FunctionComponent<AuthProps> = () => {
         if (username){
             sessionStorage.setItem('lastSession', username)
             const store = JSON.parse(localStorage.getItem('users') || "{}")
-            const removeExisitingUser = storage.filter((user: any) => user.username !== username)
-            let newUser = {
-                username,
-                active: true
+            if(store){
+                const removeExisitingUser = storage.filter((user: any) => user.username !== username)
+                let newUser = {
+                    username,
+                    active: true
+                }
+                localStorage.setItem('users', JSON.stringify([...removeExisitingUser, newUser]));
+                router.push(`./users/${username}`)
+            }else{
+                router.push(`./users/${username}`)
             }
-            localStorage.setItem('users', JSON.stringify([...removeExisitingUser, newUser]));
-            router.push(`./users/${username}`)
 
             // 
             // localStorage.setItem('users', JSON.stringify([...lastlast, newUser]));
