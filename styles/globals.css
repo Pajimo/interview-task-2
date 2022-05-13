@@ -1,0 +1,14 @@
+.container{
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.btn{
+    padding: 10px;
+    width: 200px;
+    background-color: darkgray;
+}
+
+.username{
+    font-size: 50px;
+}
