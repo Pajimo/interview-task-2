@@ -16,18 +16,21 @@ const Auth: React.FunctionComponent<AuthProps> = () => {
 
     useEffect(() => {
         const store = JSON.parse(localStorage.getItem('users') || "{}")
+        // localStorage.setItem('users',JSON.stringify([...store, storage]))
+        // console.log(storage)
+        setStorage([store])
         const session:any = sessionStorage.getItem('lastSession')
-        if(!store){
-            localStorage.setItem('users', "[]")
-        }
-        else{
-            setStorage(store)
-            if(session){
-                const lastuser = (store[store.length-1].username)
-                sessionStorage.setItem('lastSession', lastuser)
-                router.push(`./users/${lastuser}`)
-            }
-        }
+        // if(storage === []){
+        //     console.log(storage)
+        //     //localStorage.setItem('users', "[]")
+        // }
+        // else{
+        //     if(session){
+        //         // const lastuser = (store[store.length-1]?.username)
+        //         // sessionStorage.setItem('lastSession', lastuser)
+        //         //router.push(`./users/${lastuser}`)
+        //     }
+        // }
 
     }, [])
 
@@ -42,7 +45,7 @@ const Auth: React.FunctionComponent<AuthProps> = () => {
             sessionStorage.setItem('lastSession', username)
             const store = JSON.parse(localStorage.getItem('users') || "{}")
             if(store){
-                const removeExisitingUser = storage.filter((user: any) => user.username !== username)
+                const removeExisitingUser = storage?.filter((user: any) => user.username !== username)
                 let newUser = {
                     username,
                     active: true

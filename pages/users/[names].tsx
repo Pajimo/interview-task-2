@@ -57,7 +57,7 @@ const Users: React.FunctionComponent<UsersProps> = () => {
                 username: lastuser,
                 active: true
             }
-            localStorage.setItem('users', JSON.stringify([...store, newUser]));
+            localStorage?.setItem('users', JSON.stringify([...store, newUser]));
         }
           
     }, [])
@@ -94,7 +94,7 @@ const logOut = () => {
                             <p>{users.active ? 
                             <div>
                                 <p className='.username'>{users.username}</p>
-                                <p className='btn'>{users.active ? 'Active state' : ''}</p>
+                                <p className='btn'>{users.active ? 'Current state: Active' : ''}</p>
                             </div> : ''}</p>
                             
                         </div>
