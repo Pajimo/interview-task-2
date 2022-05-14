@@ -15,10 +15,10 @@ const Auth: React.FunctionComponent<AuthProps> = () => {
     const [username, setUsername] = useState('')
 
     useEffect(() => {
-        const store = JSON.parse(localStorage.getItem('users') || "{}")
+        const store = JSON.parse(localStorage.getItem('users') || "[]")
         // localStorage.setItem('users',JSON.stringify([...store, storage]))
         // console.log(storage)
-        setStorage([store])
+        setStorage(store)
         const session:any = sessionStorage.getItem('lastSession')
         // if(storage === []){
         //     console.log(storage)
